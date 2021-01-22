@@ -1,0 +1,23 @@
+
+<div class="result-main">
+  <p>検索結果: <%=@rooms_count %>件</p>
+    <div class="row">
+      <% @rooms.each do |room| %>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <div class="room-flame">
+          <div class="room-image">
+          </div>
+          <div class="room-info">
+            <ul>
+              <li>
+                <p class="room-name"><%= room.name %></p>
+                <p class="room-address"><%= room.address %></p>
+                <p class="room-price">¥ <%= room.price %></p>
+              </li>
+          </ul>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+</div>

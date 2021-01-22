@@ -1,0 +1,22 @@
+<div class="login-main container">
+  <div class="login-content">
+    <%= form_with scope: :session, url: login_path  do |f| %>
+      <p>ログイン</p>
+      <div class="login-inner">
+        <div class="field form-row">
+          <span>必須</span>
+          <%= f.email_field :email, class: "form-control col-10 px-2", :placeholder => "メールアドレス" %>
+        </div>
+        <div class="field form-row">
+          <%= f.password_field :password, class: "form-control col-10 px-2", :placeholder => "パスワード" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "ログインする", class: "form-control btn-primary my-4" %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= link_to "新しいアカウントを作成", new_user_path %>
+  </div>
+</div>

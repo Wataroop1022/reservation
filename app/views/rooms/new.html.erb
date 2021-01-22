@@ -1,0 +1,35 @@
+
+<div class="room-main col-lg-10">
+  <div class="room-box">
+      <%= form_with model: @room, local: true do |f|%>
+      <div class="update-content">
+        <h2>ルーム情報登録</h2>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= f.label "ルーム名", class: "col-md-3 reqired-a" %>
+          <%= f.text_field :name, class: "form-control", :placeholder => "ルーム名を入力"%>
+        </div>
+      </div>
+      <div class="update-content">
+      ルーム紹介
+          <%= f.text_area :introduction, class: "form-control", :placeholder => "ルーム説明を入力"%>
+      </div>
+      <div class="update-content">
+      料金
+        <%= f.number_field :price, class: "form-control", :placeholder => "一日あたりの料金を入力"%>
+      </div>
+      <div class="update-content">
+      住所
+        <%= f.text_field :address, class: "form-control", :placeholder => "住所を入力"%>
+      </div>
+      <div class="update-content">
+      ルーム画像
+        <%= f.file_field :image_name%>
+      </div>
+      <div class="update-content">
+          <%= f.submit "登録する", class: "col-md-2 btn btn-primary mx-3" %>
+      </div>
+      <% end %>
+  </div>
+</div>

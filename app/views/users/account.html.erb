@@ -1,0 +1,21 @@
+<div class="update-main col-lg-10">
+  <div class="update-box">
+    <%= link_to("プロフィール", "/users/profile") %>
+    <div class="update-content">
+      <h2>アカウント</h2>
+    </div>
+    <div class="update-content">
+      メールアドレス　<%= current_user.email %>
+    </div>
+    <div class="update-content">
+      パスワード<%= current_user.password %>
+    </div>
+    <div class="update-content">
+      <div class="col-md-2 btn btn-primary mx-3">
+        <%= link_to "編集", edit_user_path(current_user) %>
+      </div>
+    </div>
+  </div>
+
+
+</div>
