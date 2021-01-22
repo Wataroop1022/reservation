@@ -1,0 +1,17 @@
+<div class="">
+  <div class="">
+    <%= form_with model:@user, local: true do |f| %>
+    <h1>アカウント編集</h1>
+    <p>メールアドレス</p>
+    <%= f.text_field :email, class: "form-control"%>
+    <p>変更後パスワード（変更する場合のみ入力</p>
+    <%= f.password_field :password, class: "form-control" %>
+    <p>パスワード確認用（変更する場合のみ入力）</p>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+    <p>現在のパスワード</p>
+    <%= f.submit "更新", class: "col-md-2 btn btn-primary mx-3" %>
+    <%end%>
+    <%=link_to("戻る", "/users/account")%>
+  </div>
+
+</div>

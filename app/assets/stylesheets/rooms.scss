@@ -1,0 +1,46 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.result-main {
+  padding: 30px 60px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.room-flame {
+  border: 1px solid #e2e2e2;
+}
+
+.room-info {
+  padding:20px;
+}
+
+.room-name {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: #909090;
+}
+
+.room-address {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.room-price {
+  text-align: right;
+}
+
+.room-main {
+  background-color: #F6F8F9;
+  border-left: 2px solid #e2e2e2;
+}
+
+.room-box {
+  padding: 60px 40px;
+}

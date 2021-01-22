@@ -1,15 +1,94 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
     <title>Reservation</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
+  <header class="header">　
+    <div class="header-left">
+      <%= link_to image_tag("logo.png"), root_path %>
+      <div class="header-search d-lg-inline-block d-none">
+        <i class="fas fa-map-marker-alt"></i>
+        <%= form_with url: '/rooms/search', method: :get, local: true do |f| %>
+          <%= f.text_field :area, class: "form-control mb-4", placeholder: "エリア" %>
+        <% end %>
+      </div>
+      <div class="header-search d-lg-inline-block d-none">
+        <i class="fas fa-search block__icon"></i>
+        <%= form_with url: '/rooms/search', method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, class: "form-control mb-4", placeholder: "キーワード" %>
+        <% end %>
+      </div>
+    </div>
+
+    <% if logged_in? %>
+       <div class="header-right">
+         <div class="dropdown">
+           <% if current_user.image? %>
+            <%image_tag current_user.image.url, class: "mx-3 p-1 user-icon dropdown-toggle" %>
+           <% else %>
+            <img class="mx-3 p-1 user-icon dropdown-toggle" alt="メニュー" src="/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg"role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+           <% end %>
+           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+             <li class="dropdown-item"><%= link_to "ルーム登録", new_room_path, class: "edit-link"%></li>
+             <li class="dropdown-item"><%= link_to "予約済みルーム一覧", '#', class: "edit-link" %></li>
+             <li class="dropdown-item"><%= link_to "登録済みルーム一覧", '#', class: "edit-link" %></li>
+             <li class="dropdown-item"><%= link_to "設定", users_account_path, class: "edit-link" %></li>
+             <li class="dropdown-item"><%= link_to "ログアウト", logout_path, method: :delete, class: "edit-link"%></li>
+            <ul/>
+          </div>
+          <div class="user_name">
+            <%= current_user.name %>
+          </div>
+      <% else %>
+    <ul class="login-signup">
+      <li class="btn btn-secondary"><%= link_to("登録する", new_user_path, class: "login-link")%></li>
+      <li class="btn btn-primary mx-3"><%= link_to("ログイン", "/login", class: "login-link")%></li>
+
+    </ul>
+    <% end %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </header>
+
+  <div class="">
+    <script>
+      $(function() {
+        $('.nav-trigger').click(function() {
+              $('.header-nav-menu').toggle(1500);
+          })
+      });
+    </script>
+  </div>
+
+  <div class="flash-message">
+    <%= render "layouts/flash" %>
+  </div>
+
+
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <main>
+        <%= yield %>
+      </main>
+
+      <footer>
+        <div class="">
+          <p>© 2020 POTEPAN.INC.</p>
+        </div>
+      </footer>
+    </div>
   </body>
+
+
+
+
 </html>

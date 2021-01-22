@@ -1,0 +1,23 @@
+<div class="form-main">
+  <div class="form-new">
+      <p>新しいアカウントを作成</p>
+      <%= form_with model: @user, local: true do |f|%>
+      <div class="">
+        <%= f.text_field :name, :placeholder => "ユーザー名"%>
+      </div>
+      <div class="">
+          <%= f.text_field :email, :placeholder => "メールアドレス"%>
+      </div>
+      <div class="">
+        <%= f.password_field :password, :placeholder => "パスワード"%>
+      </div>
+      <div class="">
+        <%= f.password_field :password_confirmation, :placeholder => "パスワード確認"%>
+      </div>
+      <div class="">
+          <%= f.submit "新しいアカウントを作成" %>
+      </div>
+      <% end %>
+  </div>
+
+</div>

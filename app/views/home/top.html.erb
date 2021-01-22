@@ -1,0 +1,30 @@
+<div class="top">
+  <div class="top-main">
+    <div class="container">
+      <div class="row col-lg-6">
+        <div class="form-fream">
+          <div class="form-area">
+            <p class="form-area-title mb-4">Potepan Shareでまだ体験したことのない旅をしよう</p>
+            <p>エリア</p>
+            <%= form_with url: '/rooms/search', method: :get, local: true do |f| %>
+              <%= f.text_field :area, class: "form-control mb-4", placeholder: "東京" %>
+              <%= f.submit "探す", class: "form-control col-md-2 btn btn-primary "%>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="top-search-window">
+    </div>
+
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="content-area">
+        <%= link_to(image_tag("/"))%>
+      </div>
+
+    </div>
+  </div>
+</div>
